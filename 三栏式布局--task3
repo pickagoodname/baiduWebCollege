@@ -1,0 +1,100 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		<title>三列布局</title>
+		<style type="text/css">
+			body {margin:0;padding:0}
+			#wrap {
+				background:#aaa;
+				border:1px solid #cce;
+				position:relative;
+				padding:20px;
+				margin:20px;
+			}
+			
+			#wrap-middlebox {
+				float:left;
+				width:100%;
+			}
+			#middlebox {
+				background:#ddd;
+				margin:0 140px 0 220px;
+			}
+			#leftbox {
+				background:#ddd;
+				float:left;
+				position:relative;
+				border:1px solid #cce;
+				margin-left:-100%;
+				width:200px;
+			}
+			.team-logo {
+				width:80px;
+				height:80px;
+				padding:20px 0 20px 20px;
+				float:left;
+			}
+			.team-logo img{
+				width:80px;
+				height:80px;	
+				border:1px dotted #aaa;
+			}
+			#leftbox h5 {
+				width:56px;
+				height:20px;
+				float:left;
+				margin-left:22px;
+			}
+			#rightbox {
+				background:#ddd;
+				float:left;
+				position:relative;
+				width:120px;
+				margin-left:-120px;
+			}
+			.personal-logo {
+				width:80px;
+				height:80px;
+				padding:20px;
+				padding:20px;
+			}
+			.personal-logo img {
+				width:80px;
+				height:80px;
+				border:1px dotted #aaa;
+			}
+			.clearbox{clear:both;}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="wrap-middlebox">
+				<div id="middlebox">
+					使命——将超越自我的体育精神融入每个人的生活。愿景——成为中国市场品牌美誉度和市场份额双第一，受人尊重、并可持续发展的世界级体育用品公司。核心价值观:品牌至上——我们坚信品牌价值是经营决策的基准，是安踏人倾力维护的核心。创新求变——我们从不惧怕变革的风险，预应前瞻的格局，以随需而变的创新，创造客户终身价值。专注务实——我们秉持"精、细、实、严"的求真态度，致力与体育事业共成长。诚信感恩——我们笃信诚实正直、信守承诺的处世原则，永怀感恩之心，善尽社会责任。旗下品牌：安踏：安踏是定位于大众的专业体育用品品牌，安踏专注于为最广大的普通消费者提供最高性价比的专业体育用品。安踏儿童（ANTA KIDS）：安踏儿童主要是为3-14岁小朋友打造健康、舒适的产品，陪伴他们自在运动，健康成长。其产品以运动(sports)、生活(lifestyle)二大风格为主，产品涵盖服装、鞋品与配件，全面满足小朋友日常上学、运动、出游等各种场合的穿着需求。FILA：斐乐品牌于1926年由FILA兄弟在意大利创立。上世纪七十年代，为配合多元化策略，该品牌拓展了在当时前景一片广阔的运动服装业务，并先后开发了网球、滑雪、泳、高尔夫球、爬山等系列产品，行销法国、意大利、美国、日本等三十多个国家和地区，是意大利知名的高级运动休闲品牌。2009年，安踏将把意大利品牌Fila中国商标权及运营业务纳入囊中。安踏-NBA联名品牌：2014年10月13日，NBA中国与安踏体育用品有限公司在北京宣布双方结成长期合作伙伴，安踏正式成为NBA官方市场合作伙伴以及NBA授权商。安踏推出全系列的、带有球队和联盟标志的安踏-NBA联名品牌运动鞋和配件产品。
+				</div>
+			</div>
+			<div id="leftbox">
+				<div class="team-logo">
+					<img src="http://pic.qiantucdn.com/58pic/21/52/27/43k58PICwnq_1024.JPG" title="team-logo" alt="team-logo" />
+				</div>
+					<h5>安踏体育</h5>
+			</div>
+			
+			<div id="rightbox">
+				<div class="personal-logo">
+					<img src="http://images.s.cn/images/goods/20161228/82d804361f802cff.jpg" title="跑鞋" alt="跑鞋">
+				</div>
+				<div class="personal-logo">
+					<img src="http://images.s.cn/images/goods/20161029/b2ebcc81381d8834.jpg" title="板鞋" alt="板鞋">
+				</div>
+				<div class="personal-logo">
+					<img src="http://images.s.cn/images/goods/20160513/1a338cabad09e3ac.jpg" title="运动服" alt="运动服">
+				</div>
+				<div class="personal-logo">
+					<img src="http://images.s.cn/images/goods/20161228/824fc2c70e7c9b1a.jpg" title="运动鞋" alt="运动鞋">
+				</div>
+			</div>
+			<div class="clearbox"></div>
+		</div>
+	</body>
+</html>
