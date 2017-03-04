@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text-html" charset="utf-8">
+		<title>定位和居中--task4</title>
+		<style type="text/css">
+			body {margin:0;padding:0;}
+			#wrap {
+				position:relative;
+				float:left;
+				left:50%;
+			}
+			#innerelement {
+				width:400px;
+				height:200px;
+				background:#ccc;
+				position:relative;
+				overflow:hidden;
+				left:-50%;
+			}
+			
+			.sector {
+				background:#fc0;
+				width:100px;
+				height:100px;
+				border-radius:50px;
+			}
+			.lefttop {
+				position:absolute;
+				top:-50px;
+				left:-50px;
+			}
+			.rightbottom{
+				position:absolute;
+				bottom:-50px;
+				right:-50px;
+			}
+			
+
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="innerelement">
+				<div class="sector lefttop">
+					
+				</div>
+				<div class="sector rightbottom">
+				
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
