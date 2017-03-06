@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		<title>零基础HTML编码二</title>
+		<style type="text/css">
+			body {
+				margin:0;
+				padding:0;
+			}
+			#wraper {
+				background:#aaa;
+				position:relative;
+				height:100%;
+				width:100%;
+			}
+			#header {
+				background:#444;
+				width:100%;
+				height:100px;
+				position:relative;
+			}
+			.baidu_logo {
+				position:absolute;
+			}
+			.baidu_logo img{
+				width:209px;
+				height:100px;
+				margin-left:30px;
+			}
+			.navi {
+				position:absolute;
+				right:30px;
+			}
+			.navi ul{
+				list-style:none;
+				display:inline;
+				height:100px;
+				line-height:100px;
+
+			}
+			.navi ul li {
+				display:inline;
+			}
+			.navi a {
+				text-decoration:none;
+				color:#fff;
+			}
+			.navi a:hover {
+				color:red;
+			}
+			.navi a:visited {
+				color:blue;
+			}
+			#mainbody{
+				position:relative;
+				margin:20px;
+			}
+			.wrap_content {
+				float:left;
+				width:100%;
+			}
+
+			.content {
+				margin-left:0;
+				margin-right:510px;
+				
+			}
+			.content p {
+				text-indent:2em;
+			}
+			.content > div {
+				margin-bottom:20px;
+				padding:20px;
+				background:#fff;
+			}
+			.part1 {
+				position:relative;
+			}
+			.part1 h1{
+				text-align:center;
+			}
+			.part1 img {
+				display:block;
+				margin-left:50%;
+				position:relative;
+				left:-110px;
+			}
+			.part3 {
+				position:relative;
+			}
+			.part3 img {
+				width:220px;
+				height:146px;
+				border:1px solid #888;
+				float:left;
+				margin:5px;
+			}
+			.part4 {
+				position:relative;
+
+			}
+			.part4 table{
+				margin:5px auto;
+				width:90%;
+				height:120px;
+				border-collapse:collapse;
+			}
+			.part4 table caption {
+				font-size:25px;
+				font-weight:bold;
+				margin-bottom:10px;
+			}
+			.part4 th {
+				background:#666;
+				height:40px;
+			}
+			.part4 th,td {
+				border:1px solid red;
+				text-align:center;
+			}
+			.part4 table tr:last-child td:first-child {
+				text-align:left;
+			}
+
+
+			.sidebar {
+				background:#fff;
+				float:left;
+				margin-left:-490px;
+				padding:20px;
+				width:450px;
+				position:relative;
+			}
+			.sidebar h2 {
+				text-align:center;
+			}
+			.sidebar form div div:first-child {
+				float:left;
+				margin-right:10px;
+				height:30px;
+				width:120px;
+			}
+			.sidebar form div div:first-child p {
+				float:right;
+				margin:0;
+			}
+			.sidebar form div div:last-child {
+				width:320px;
+				height:30px;
+				float:left;
+			}
+			.sidebar form .introbox div:last-child {
+				width:305px;	
+				height:180px;
+			}
+			.sidebar form .introbox textarea {
+				width:290px;
+				height:160px;
+			}
+			.sidebar form .submitbox {
+				width:80%;
+				height:40px;
+				background:blue;
+				text-align:center;
+				margin:0 auto;
+				border-radius:10px;
+			}
+			.sidebar form .submitbox input {
+				margin:auto;
+				background:blue;
+				border:none;
+				font:normal 25px Microsoft Yahei;
+			}
+
+			.clearbox:before {
+				content:"";
+				display:table;
+			}
+			.clearbox:after {
+				content:"";
+				display:table;
+				clear:both;
+			}
+			#footer {
+				background:#444;
+				width:100%;
+				height:100px;
+				line-height:100px;
+				position:relative;
+				text-align:center;
+			}
+			#footer p {
+				font-weight:bold;
+			   	font-size:30px;	
+				color:#fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wraper">
+			<div id="header">
+				<div class="baidu_logo">
+					<img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png" title="百度" alt="百度logo" />
+				</div>
+				<div class="navi">
+					<ul>
+						<li><a href="#" target="_blank">导航链接一|</a></li>
+						<li><a href="#" target="_blank">导航链接二|</a></li>
+						<li><a href="#" target="_blank">导航链接三|</a></li>
+						<li><a href="#" target="_blank">导航链接四|</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="mainbody" class="clearbox">
+				<div class="wrap_content">
+				<div class="content">
+					<div class="part1">
+						<h1>安踏体育用品有限公司</h1>
+						<h2>安踏体育</h2>
+						<h3><a href="http://baike.baidu.com">百度百科</a></h3>
+							<p>发展历程：1991年安踏成立；1991年，在福建晋江的一家制鞋作坊门口第一次挂上了安踏的标志，经过二十几年的发展，安踏体育用品有限公司现已成为国内最大的综合体育用品品牌公司。1999年签约孔令辉塑造品牌；2004年赞助CBA，企业迎来高速发展期；2004年开始，安踏连续三年赞助中国男子篮球职业联赛，成为CBA；2005年成立国内首家运动科学实验室；2007年香港上市；2007年7月10日，安踏体育在香港联交所挂牌上市，面向全球发售6亿股，仅公开发售部分就获得183倍的超额认购。加上超额配股部分，安踏融资超过35亿港元，创造了中国体育用品行业市盈率及融资金额最高纪录。2008年推出ANTA KIDS战略；2009年安踏收购FILA开启多品牌战略；2009年安踏签约中国奥委会，打造代表中国体育的品牌形象；2009年6月，安踏与中国奥委会达成战略合作协议，成为2009-2012年中国奥委会体育服装的合作伙伴，赞助中国体育团参加2010温哥华冬奥会、2010广州亚运会以及2012伦敦奥运会等11项重大国际赛事提供冠军装备。2012年的伦敦奥运会，随着中国奥运健儿在赛场上不断夺取奖牌，安踏精心打造的“冠军龙服”领奖服也通过电视转播被众多中国消费者所熟悉。2012年成为中国体育用品行业第一；2012年，安踏业绩达人民币76.2亿元，后者为67.4亿元。从营收的绝对值上看，安踏成功成为国产体育用品品牌的老大；2013年启动零售转型战略；2013年续约中国奥委会；2014年签约体操中心；<img src="https://imgsa.baidu.com/baike/s%3D220/sign=6b2bcbc068061d957946303a4bf50a5d/1b4c510fd9f9d72aa273a2e5d22a2834349bbb37.jpg" alt="签约体操中心" title="签约体操中心">2014年签约NBA；2014年10月13日，安踏正式成为NBA官方市场合作伙伴以及NBA授权商。2016年用工匠精神突破百亿业绩；2016年安踏发布智能跑鞋；2016年6月19日，在第30届奥林匹克日长跑活动中，安踏发布了智能跑鞋，该跑鞋主打全方位跑姿监控，可科学测试足部翻转、着地方式、受力大小、腾空高度、步幅、着地时间、PK步频等。同时，安踏还推出了与智能跑鞋配套的APP——ANT Arunning time。旨在为跑者提供更专业、更智能的跑步装备，正式发力智能跑鞋市场。2016年安踏发布巴西奥运龙服。</p>
+					</div>
+					<div class="part2">
+						<h1>企业文化</h1>
+						<h2>旗下品牌</h2>
+						<p>使命——将超越自我的体育精神融入每个人的生活。愿景——成为中国市场品牌美誉度和市场份额双第一，受人尊重、并可持续发展的世界级体育用品公司。品牌至上——我们坚信品牌价值是经营决策的基准，是安踏人倾力维护的核心。创新求变——我们从不惧怕变革的风险，预应前瞻的格局，以随需而变的创新，创造客户终身价值。专注务实——我们秉持"精、细、实、严"的求真态度，致力与体育事业共成长。诚信感恩——我们笃信诚实正直、信守承诺的处世原则，永怀感恩之心，善尽社会责任。旗下品牌：安踏：安踏是定位于大众的专业体育用品品牌，安踏专注于为最广大的普通消费者提供最高性价比的专业体育用品。安踏儿童（ANTA KIDS）：安踏儿童主要是为3-14岁小朋友打造健康、舒适的产品，陪伴他们自在运动，健康成长。其产品以运动(sports)、生活(lifestyle)二大风格为主，产品涵盖服装、鞋品与配件，全面满足小朋友日常上学、运动、出游等各种场合的穿着需求。FILA：斐乐品牌于1926年由FILA兄弟在意大利创立。上世纪七十年代，为配合多元化策略，该品牌拓展了在当时前景一片广阔的运动服装业务，并先后开发了网球、滑雪、游泳、高尔夫球、爬山等系列产品，行销法国、意大利、美国、日本等三十多个国家和地区，是意大利知名的高级运动休闲品牌。2009年，安踏将把意大利品牌Fila中国商标权及运营业务纳入囊中。安踏-NBA联名品牌：2014年10月13日，NBA中国与安踏体育用品有限公司在北京宣布双方结成长期合作伙伴，安踏正式成为NBA官方市场合作伙伴以及NBA授权商。安踏推出全系列的、带有球队和联盟标志的安踏-NBA联名品牌运动鞋和配件产品。 
+						</p>
+						<ol>
+							<li>水上运动管理中心</li>
+							<li>拳击跆拳道运动管理中心</li>
+							<li>体操运动管理中心</li>
+							<li>举摔柔运动管理中心</li>
+						</ol>
+					</div>
+					<div class="part3 clearbox">
+						<h1>图片</h1>
+						<img src="https://imgsa.baidu.com/baike/s%3D220/sign=1e82061e217f9e2f74351a0a2f31e962/0b46f21fbe096b63492deaa80a338744ebf8ac16.jpg" alt="赞助CBA" title="赞助CBA">
+						<img src="https://imgsa.baidu.com/baike/s%3D220/sign=ea0d32fd35fa828bd5239ae1cd1e41cd/5366d0160924ab18c11857cf33fae6cd7b890b3f.jpg" alt="运动实验室" title="运动实验室">
+						<img src="https://imgsa.baidu.com/baike/s%3D220/sign=33798b877ef0f736dcfe4b033a54b382/7af40ad162d9f2d3cf319917afec8a136327cc22.jpg" alt="签约NBA" title="签约NBA">
+						<img src="https://imgsa.baidu.com/baike/s%3D220/sign=d9d546437a8b4710ca2ffacef3cfc3b2/faedab64034f78f09442249171310a55b3191c02.jpg" alt="破百亿" title="破百亿">
+						<img src="https://imgsa.baidu.com/baike/s%3D220/sign=9381384be3c4b7453094b014fffd1e78/a8ec8a13632762d06ed71adda8ec08fa503dc6e3.jpg" alt="智能跑鞋" title="智能跑鞋">
+						<img src="https://imgsa.baidu.com/baike/s%3D220/sign=f0fa11d0d958ccbf1fbcb23829d8bcd4/1ad5ad6eddc451dac2efb489befd5266d01632b2.jpg" alt="冠军龙服" title="冠军龙服">
+						<img src="https://imgsa.baidu.com/baike/s%3D220/sign=d5fd59e22e34349b70066987f9e81521/55e736d12f2eb9386b80c20ad3628535e4dd6f5d.jpg" alt="合作联盟" title="合作联盟">
+						<img src="https://imgsa.baidu.com/baike/s%3D220/sign=5abfe6abf0246b607f0eb576dbf91a35/77094b36acaf2edd477af1118b1001e9380193bb.jpg" alt="签约张继科" title="签约张继科">
+						<img src="https://imgsa.baidu.com/baike/s%3D220/sign=6e0f8532573d26972ad30f5f65f9b24f/e850352ac65c10389da0763ab4119313b17e8968.jpg" alt="签约球星" title="签约球星">
+						<img src="https://imgsa.baidu.com/baike/s%3D250/sign=45553c355466d0167a19992da72ad498/b21bb051f81986184af4507c4ced2e738ad4e693.jpg" alt="中国奥委会" title="中国奥委会">
+					</div>
+					<div class="part4">
+						<h1>签约表单</h1>
+						<ul>
+							<li>品牌至上</li>
+							<li>创新求变</li>
+							<li>专注务实</li>
+							<li>诚信感恩</li>
+						</ul>
+						<table summary="签约明星">
+							<caption>签约明星</caption>
+							<tr><th>国家队</th><th>项目</th><th>运动员</th></tr>
+							<tr><td>中国国家举重队</td><td>举重</td><td>廖辉、吴小彪</td></tr>
+							<tr><td>中国国家拳击队</td><td>拳击</td><td>邹市明、熊朝忠</td></tr>
+							<tr><td>中国国家蹦床队</td><td>蹦床</td><td>何雯娜、董栋</td></tr>
+						</table>
+
+					</div>
+
+				</div>
+				</div>
+				<div class="sidebar">
+					<h2>这是侧边栏</h2>
+					<form>
+						<div class="mailbox clearbox">
+							<div><p>请输入邮箱地址</p></div>
+							<div><input type="text" name="" /></div>
+						</div>
+						<div class="passwdbox clearbox">
+							<div><p>请输入密码</p></div>
+							<div><input type="password" name="" /></div>
+						</div>
+						<div class="repasswdbox clearbox">
+							<div><p>请确认密码</p></div>
+							<div><input type="password" name="" /></div>
+						</div>
+						<div class="genderbox clearbox">
+							<div><p>性别</p></div>
+							<div>
+								 男<input type="radio" name="gender" value="male" />
+								 女<input type="radio" name="gender" value="female" />
+							</div>
+						</div>
+						<div class="habbitbox clearbox">
+							<div><p>爱好</p></div>
+							<div>
+								<input type="checkbox" name="run" value="run" />跑步
+								<input type="checkbox" name="climb" value="climb" />登山
+								<input type="checkbox" name="football" value="football" />足球
+								<input type="checkbox" name="games" value="games" />游戏
+							</div>
+						</div>
+						<div class="citybox clearbox">
+							<div><p>城市</p></div>
+							<div>
+								<select>
+									<option value="bj">北京</option>
+									<option value="sh">上海</option>
+									<option value="cq" selected="selected">重庆</option>
+									<option value="tj">天津</option>
+								</select>
+							</div>
+						</div>
+						<div class="introbox clearbox">
+							<div><p>自我介绍</p></div>
+							<div><textarea rows="10" cols="40" value="简要描述下自己"></textarea></div>
+						</div>
+						<div class="submitbox"><input type="submit" value="提交" /></div>
+					</form>
+				</div>
+			</div>
+			<div id="footer">
+				<p>版权所有&copy;</p>
+			</div>
+		</div>
+	</body>
+</html>
+
