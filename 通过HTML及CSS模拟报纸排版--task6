@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text-html" charset="utf-8">
+		<title>通过HTML及CSS模拟报纸排版</title>
+		<style type="text/css">
+			body,p {
+				margin:0;
+				padding:0;
+			}
+			body {background:#333;}
+			.clearbox:before {
+				content:"";
+	   			display:table;			
+			}
+			.clearbox:after {
+				content:"";
+				display:table;
+	   			clear:both;			
+			}
+			#wraper {
+				width:980px;
+				height:1386px;
+				margin:0 auto;
+				background:#fff;
+			}
+			#paper_header {
+				position:relative;
+				width:892px;
+				height:63px;
+				margin:0 auto;
+			}
+			#paper_header p {
+				margin-top:43px;
+				font-size:12px;
+				font-family:"黑体";
+			}
+			.source {
+				float:left;
+				background:#d45d5c;
+				width:110px;
+				height:61px;
+			}
+			.source p {
+				margin-left:6px;
+				color:#fff;
+			}
+			.date p {
+				float:right;
+				color:#d45d5c;
+			}
+			.top_line {
+				width:892px;
+				height:2px;
+				background:#938e8c;
+				clear:both;
+			}
+			
+			#paper_content {
+				width:892px;
+				height:1134px;
+				margin:35px 44px;
+			}
+			.content_part1 {
+				width:100%;
+				position:relative;
+			}
+			.content_part1_pic {
+				width:641px;
+				height:301px;
+				position:relative;
+				float:left;
+				background-image:url("http://bpic.588ku.com/back_pic/04/74/72/8658a51e0283e09.jpg");
+			}
+			.left_back,.right_back {
+				width:191px;
+				height:301px;
+			}
+			.left_back {
+				float:left;
+				background-color:rgba(147,183,151,0.5);
+			}
+			.right_back {
+				float:right;
+				background:rgba(228,182,182,0.5);
+			}
+			.content_part1_text {
+				float:left;
+				margin-left:44px;
+				width:207px;
+				height:301px;
+			}
+			.content_part1_text .line {
+				background:#cc8091;
+				width:203px;
+				height:2px;
+			}
+			.line1,.line2 {
+				font-size:24px;
+				font-family:Microsoft Yahei;
+				color:#000;
+				text-decoration:underline;
+				line-height:40px;
+				font-variant:small-caps;
+			}
+			.line2 {
+				margin-top:-10px;
+			}
+			.line3 {
+				font-size:12px;
+				font-family:"楷体";
+				color:#676767;
+				line-height:10px;
+			}
+			.line4 {
+				font-size:116px;
+				font-family:Microsoft Yahei;
+				color:#75b86b;
+				//text-decoration:underline;
+				//font-style:oblique;
+			}
+			.line5,.line6,.line7 {
+				//font-size:55px;
+				font-family:Microsoft Yahei;
+				color:#cc8091;
+				float:left;
+				position:relative;
+			}
+			.line5 {
+				font-size:55px;
+			}
+			.line6 {
+				font-size:21px;
+				top:20px;
+				left:5px;
+			}
+			.line7 {
+				font-size:12px;
+				color:#bbb;
+				top:15px;
+				left:5px;
+			}
+			.content_part2 {
+				width:641px;
+				margin-top:44px;
+			}
+			.text_left {
+				width:40%;
+				float:left;
+			}
+			.text_left p:first-child {
+				font:bold 16px Microsoft Yahei;
+				text-decoration:underline;
+				color:#418c59;
+				margin-bottom:10px;
+			}
+			.text_left p:last-child {
+				font-size:12px;
+				font-family:Microsoft Yhei;
+				color:#767777;
+				line-height:16px;
+			}
+			.text_left,.text_middle,.text_right p:last-child {
+				padding-right:20px;
+				
+			}
+			.text_middle {
+				width:30%;
+				float:left;
+			}
+			.text_middle p:first-child {
+				font-weight:bold;
+			   	font-size:16px;
+				text-decoration:underline;
+				color:#d2994f;
+				margin-bottom:10px;
+			}
+			.text_middle p:last-child {
+				font-size:12px;
+				font-family:Microsoft Yhei;
+				color:#231815;
+				line-height:16px;
+				opacity:0.3;
+			}
+			.text_right p:first-child {
+				font-weight:bold;
+				font-size:16px;
+				text-decoration:underline;
+				color:#cc7680;
+				margin-bottom:10px;
+			}
+			.text_right p:last-child {
+				font:oblique 12px Microsoft Yahei;
+				color:#cd4a48;
+				line-height:16px;
+				opacity:0.3;
+			}
+			.content_part3 {
+				width:100%;
+				height:1000px;
+				margin-top:70px;
+			}
+			.left_top {
+				width:415px;
+				float:left;
+				position:relative;
+			}
+			.left_top p span:first-child {
+				font:oblique bold 72px "黑体";
+				color:#f5e327;
+			}
+			.left_top p span:last-child {
+				font:bold 42px "黑体";
+				color:#11456b;
+				line-height:16px;
+			}
+			.left_top .text {
+				font:bold 33px "黑体";
+				color:#11456b;
+			}
+			
+			.left_top .line {
+				width:415px;
+				height:2px;
+				background:#11456b;
+				margin-top:10px;
+			}
+			
+			.left_btm {
+				width:415px;
+				float:left;
+				margin-top:20px;
+			}
+			.left_btm .p2,.p3,.p4 {
+				font-size:12px;
+				font-family:"宋体";
+				color:#767777;
+				line-height:16px;
+			}
+			.left_btm .p3,.p4 {
+				text-indent:2em;
+			}
+			.left_btm .p1 {
+				display:block;
+				line-height:70px;
+				font-size:70px;
+				font-family:Microsoft Yahei;
+				color:#f5e327;
+				float:left;
+				margin-right:5px;
+			}
+			.left_btm img {
+				width:150px;
+				height:300px;
+				float:right;
+				margin:10px 5px 10px 10px;
+			}
+			.right_top {
+				width:458px;
+				height:275px;
+				background-image:url(http://pic.qiantucdn.com/58pic/11/73/88/74M58PICti9.jpg);
+				float:right;
+			}
+			.right_top .front_layer {
+				background:rgba(118,118,118,0.5);
+				width:100%;
+				height:61px;
+				line-height:61px;
+				position:relative;
+				top:214px;
+			}
+			.right_top .front_layer p:first-child {
+				width:3px;
+				height:44px;
+				background:#72b16a;
+				margin-left:44px;
+				float:left;
+				margin-top:8px;
+			}
+			.right_top .front_layer .p1 {
+				float:left;
+				font-size:26px;
+				font-family:Microsoft Yahei;
+				color:#fff;
+				margin-left:10px;
+			}
+			.right_top .front_layer p:last-child {
+				font:oblique 12px Microsoft Yahei;
+				color:#72b16a;
+				letter-spacing:140%;
+				position:absolute;
+				top:30px;
+				left:166px;
+			}
+			.right_btm {
+				width:459px;
+				height:318px;
+				background:#eeedd6;
+				float:right;
+				margin-top:44px;
+				position:relative;
+			}
+			.right_btm ul {
+				margin-top:20px;
+				margin-left:20px;
+				margin-right:20px;
+			}
+			.right_btm ul li {
+				list-style-image:url(http://www.easyicon.net/api/resizeApi.php?id=1155329&size=16);
+			}
+			.right_btm ul .li_p1,.li_p2 {
+				font-size:16px;
+				font-family:"宋体";
+				color:#5a5b5b;
+				text-align:left;
+				margin:20px 0;
+			}
+			.right_btm ul .li_p3 {
+				font:oblique 12px "宋体";
+				color:#5a5b5b;
+				text-align:right;
+				margin:20px 0;
+			}
+			.right_btm .btm_left {
+				width:260px;
+				height:160px;
+				background:#d45d5c;
+				position:absolute;
+				bottom:0;
+			}
+			.btm_left .div1 p {
+				line-height:110px;
+				font-size:110px;
+				margin-top:25px;
+				margin-left:10px;
+				font-family:Microsoft Yahei;
+				color:#fff;
+				float:left;
+			}
+			.btm_left .div2 {
+				width:2px;
+				height:86px;
+				background:#fff;
+				float:left;
+				position:relative;
+				top:40px;
+				left:3px;
+			}
+			.btm_left .div3 {
+				float:left;
+				margin-left:10px;
+				margin-top:45px;
+			}
+			.btm_left .div3 p:first-child,.pp2 {
+				font:italic 21px "黑体";
+				color:#fff;
+				line-height:21px;
+			}
+			.btm_left .div3 p:last-child {
+				font-size:12px;
+				font-family:"黑体";
+				color:#fff;
+				margin-top:6px;
+				word-wrap: break-word;
+			}
+			.btm_right {
+				width:179px;
+				height:160px;
+				position:absolute;
+				right:0;
+				bottom:0;
+				margin-left:10px;
+				margin-right:10px;
+			}
+			.btm_right p {
+				line-height:16px;
+				position:relative;
+			}
+			.btm_right .main_text,.padbox {
+				font:oblique 14px "黑体";
+				color:#5a5b5b;
+				//padding-left:-40px;
+			}
+			.padbox {
+				position:absolute;
+				left:35px;
+				top:21px;
+			}
+			.btm_right span:first-child,span:last-child {
+				font-size:72px;
+				font-family:"黑体";
+				color:#d45d5c;
+			}
+			.btm_right span:first-child {
+				position:relative;
+				top:35px;
+				left:-40px;
+			}
+			.btm_right span:last-child {
+				position:absolute;
+				top:100px;
+				
+			}
+			#paper_footer {
+				width:892px;
+				margin:70px auto 0 auto;
+			}
+			.foot_line {
+				width:892px;
+				height:1px;
+				background:#938e8c;
+			}
+			.foot_note {
+				float:right;
+			}
+			.foot_note {
+				font-size:12px;
+				font-family:"黑体";
+				color:#d45d5c;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="wraper">
+			<div id="paper_header">
+				<div class="source">
+					<p>ife.baidu.com</p>
+				</div>
+				<div class="date">
+					<p>2016.03</p>
+				</div>
+				<div class="top_line">
+				</div>
+			</div>
+			<div id="paper_content">
+				<div class="content_part1 clearbox">
+					<div class="content_part1_pic">
+						<!--<img src="http://bpic.588ku.com/back_pic/04/74/72/8658a51e0283e09.jpg" alt="秋日私语" title="秋日私语">-->
+						<div class="left_back">
+						</div>
+						<div class="right_back">
+						</div>
+					</div>
+					<div class="content_part1_text">
+						<div class="line">
+						</div>
+						<p class="line1">About</p>
+						<p class="line2">Technologe</p>
+						<p class="line3">about technologe about technologe about technologe</p>
+						<p class="line4">700</p>
+						<p class="line5">3.2</p>
+						<p class="line6">CSS</p>
+						<p class="line7">CSSCSSCSSCSSCSS</p>
+						
+					</div>
+				</div>
+				<div class="content_part2 clearbox">
+					<div class="text_left">
+						<p>What</p>
+						<p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+					</div>
+					<div class="text_middle">
+						<p>When</p>
+						<p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+					</div>
+					<div class="text_right">
+						<p>How</p>
+						<p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+					</div>
+				</div>
+				<div class="content_part3">
+					<div class="left_top">
+						<p><span>THE</span><span> TECHNOLOGE OF FRONT</span></p>
+						<p class="text">前端技术领域</p>
+						<div class="line"></div>
+					</div>
+					<div class="right_top">
+						<div class="front_layer">
+							<p> </p>
+							<p class="p1">前端技术</p>
+							<p>前端技术前端技术</p>
+						</div>
+					</div>
+					<div class="left_btm">
+						<p class="p1">前</p><p class="p2">端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端<img src="http://pic.qiantucdn.com/58pic/11/30/32/82s58PICBwg.jpg" alt="春天" title="春天">前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p><p class="p3">前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p><p class="p4">前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+						
+					</div>
+					<div class="right_btm">
+						<ul>
+							<li><p class="li_p1">前端前端前端前端前端前端…………………前端</p></li>
+							<li><p class="li_p2">前端前端前端前端………………………前端前</p></li>
+							<li><p class="li_p3">前端前端前端前端前端前端前端………………………………………前端</p></li>
+						</ul>
+						<div>
+							<div class="btm_left clearbox">
+								<div class="div1">
+									<p>0</p>
+								</div>
+								<div class="div2">
+								</div>
+								<div class="div3">
+									<p >ONE TWO</p>
+									<p class="pp2">THREE FOUR FIVE</p>
+									<p>hello word hello word<br /> hello word</p>
+								</div>
+							</div>
+							<div class="btm_right">
+								<p><span>“</span><span class="padbox">world</span><span class="main_text"> hello world hello world hello world hello world hello world hello world hello</span><span>”</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="paper_footer">
+				<div class="foot_line">
+				</div>	
+				<div class="foot_note">
+					<p>ife.baidu.com</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
