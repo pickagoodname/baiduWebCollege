@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text-html" charset="utf-8">
+		<title>实现常见的技术产品官网</title>
+		<style type="text/css">
+			/*
+				初始化
+			*/
+			body {
+				margin:0;
+				padding:0;
+			}
+			/*
+				定义包裹层：最小宽度1280px以及超过此宽度能随浏览器改变，后代元素也能继承此属性
+			*/
+			#wraper {
+				background:pink;
+				min-width:1280px;
+				width:100%;
+				height:4554px;
+			}
+			/*
+				定义头部样式
+			*/
+			#header {
+				height:100px;
+				position:relative;
+			}	
+			#header .production_name {
+				height:100%;
+				width:170px;
+				position:relative;
+				left:5%;
+				line-height:100px;
+			}
+			.production_name img {
+				width:64px;
+				height:64px;
+				float:left;
+				margin-top:18px;
+			}
+			.production_name h1 {
+				margin:0;
+				float:right;
+			}
+			#header .production_navi {
+				height:100%;
+				width:700px;
+				position:absolute;
+				top:0px;
+				right:5%;
+				line-height:100px;
+			}
+			.production_navi ul {
+				list-style:none;
+				margin:0;
+				padding:0;
+				float:right;
+			}
+			.production_navi ul li {
+				display:inline;
+				margin-left:30px;
+			}
+			.production_navi ul li a {
+				text-decoration:none;
+				font:bold 18px "宋体";
+			}
+			
+			.production_navi ul img {
+				position:absolute;
+				top:42px;
+				right:40px;
+			}
+
+			/*
+				定义主体部分样式
+			*/
+			#main_body {
+				position:relative;
+			}
+
+			/*
+				定义主体第一部分样式
+			*/
+			#mainbody .body_part1 {
+				height:670px;
+				background-image:url(http://pic.qiantucdn.com/58pic/21/71/49/78t58PICrJV_1024.jpg);
+				//background-image:url(http://pic.qiantucdn.com/58pic/19/09/60/567821f8a9bbb_1024.jpg) no-repeat 100%;
+				position:relative;
+				color:#fff;
+			}
+			.body_part1 .img_text {
+				position:absolute;
+				top:200px;
+				left:10%;
+			}
+			.img_text h2 {
+				margin:0;
+				font-size:60px;
+			}
+			.img_text p {
+				font-size:20px;
+				line-height:10px;
+			}
+			.img_text a {
+				display:block;
+				background:red;
+				width:300px;
+				height:70px;
+				line-height:70px;
+				margin-top:70px;
+				text-align:center;
+				font-size:30px;
+				text-decoration:none;
+				color:#fff;
+			}
+			/*
+				定义主体第二部分样式
+			*/
+			#mainbody .body_part2 {
+				position:relative;
+				height:300px;
+			}
+			.body_part2 .feature {
+				min-width:320px;
+				width:25%;
+				float:left;
+				text-align:center;
+			}
+			.body_part2 .feature img {
+				width:48px;
+				height:48px;
+				margin:50px auto;
+			}
+			.body_part2 .feature p {
+				margin:0 auto;
+				font-size:18px;
+				line-height:25px;
+			}
+			.body_part2 .splitter {
+				background:#ccc;
+				width:2px;
+				height:70px;
+				position:absolute;
+				top:150px;
+				margin-left:-1px;
+			}
+			.body_part2 .boxline_12 {
+				left:25%;
+			}
+			.body_part2 .boxline_23 {
+				left:50%;
+			}
+			.body_part2 .boxline_34 {
+				left:75%;
+			}
+			/*
+				定义主体第三部分样式
+			*/
+			#mainbody .body_part3 {
+				position:relative;
+				height:400px;	
+				background:#ddd;
+				text-align:center;
+			}
+			.body_part3 img {
+				width:128px;
+				height:128px;
+				margin-top:80px;
+			}
+			.body_part3 p {
+				line-height:60px;
+				font-size:60px;
+				margin-top:40px;
+				color:#aaa;
+			}
+			/*
+				定义主体第四部分样式
+			*/
+			#mainbody .body_part4 {
+				position:relative;
+				height:350px;
+				background:yellow;
+				text-align:center;
+				background-image:url(http://img95.58pic.com/photo/00033/6803.jpg_wh860.jpg);
+				color:#fff;
+			}
+			.body_part4 p:first-child {
+				margin:0 auto 10px;
+				padding-top:40px;
+				font-size:25px;
+				line-height:25px;
+			}
+			.body_part4 .short_line {
+				width:40px;
+				height:2px;
+				background:#fff;
+				margin:0 auto;
+			}
+			.body_part4 .search_note {
+				font-size:15px;
+				margin:20px auto 40px;
+			}
+			.body_part4 form {
+				position:relative;
+				width:890px;
+				height:50px;
+				margin:0 auto;
+			}
+			.body_part4 form > div {
+				float:left;
+				position:relative;
+				background-color:#fff;
+				margin-left:30px;
+			}
+			.state_box,.province_box,.city_box {
+				display:inline-block;
+				width:188px;
+				height:48px;
+				border:1px solid #ccc;
+				padding-left:10px;
+				line-height:50px;
+				text-align:left;
+				font-size:14px;
+				color:#aaa;
+				background:url(http://www.easyicon.net/api/resizeApi.php?id=1181456&size=32) no-repeat 158px;
+			}
+			.body_part4 .state_box {
+				margin-left:0;
+			}
+			.body_part4 form select {
+				width:200px;
+				height:48px;
+				position:absolute;
+				top:0px;
+				left:0;
+				font-size:12px;
+				opacity:0;
+				padding-left:20px;
+			}
+			.body_part4 .submit_box a {
+				display:inline-block;
+				width:200px;
+				height:50px;
+				line-height:50px;
+				background:red;
+				text-decoration:none;
+				color:#fff;
+			}
+			.clearbox:before {
+				content:"";
+				display:table;
+			}
+			.clearbox:after {
+				content:"";
+				display:table;
+				clear:both;
+			}
+			/*
+				定义主体第五部分样式
+			*/
+			#mainbody .body_part5 {
+				height:650px;
+				position:relative;
+				background:#ddd;
+			}
+			.body_part5 .part5_wrapper {
+				width:1120px;
+				height:650px;
+				position:relative;
+				margin:0 auto;
+				padding:100px 0;
+			}
+			.body_part5 .active {
+				width:250px;
+				height:450px;
+				float:left;
+				text-align:center;
+			}
+			.body_part5 .active img {
+				width:218px;
+				height:378px;
+				padding:10px 15px;
+				border:1px solid #ccc;
+				background:#eee;
+			}
+			.shanghai,.shenzhen,.hongkong {
+				margin-left:40px;
+			}
+			.body_part5 .active p {
+				color:#888;
+				font-size:12px;
+				margin-top:10px;
+				font-family:Microsoft Yahei;
+			}
+			.body_part5 .active h4 {
+				margin:10px auto;
+				font-family:Microsoft Yahei;
+			}
+			.body_part5 .shanghai h4 span {
+				margin-left:50px;
+			}
+			.body_part5 .shanghai h4 {
+				font-size:20px;
+				margin-top:0;
+				margin-bottom:5px;
+			}
+			.body_part5 .shanghai p {
+				margin-top:5px;
+			}
+			/*
+				定义主体第六部分样式
+			*/
+			#mainbody .body_part6 {
+				position:relative;
+				height:500px;
+			}
+			.body_part6 .left_img {
+				width:67%;
+				height:500px;
+				float:left;
+				text-align:center;
+				position:relative;
+				background-image:url(http://pic.qiantucdn.com/58pic/21/71/49/78t58PICrJV_1024.jpg);
+			}
+			.body_part6 .left_img p {
+				color:#fff;
+				//margin:0;
+				padding:0;
+			}
+			.left_img .new_world {
+				font-size:40px;
+				margin:100px auto 0;
+			}
+			.left_img .new_time {
+				font-size:100px;
+				margin:0;
+			}
+			.left_img .new_beijing {
+				font-size:25px;
+				margin:0;
+			}
+			.left_img .new_date {
+				font-size:20px;
+			}
+			.body_part6 .right_text {
+				width:33%;
+				height:500px;
+				float:left;
+				text-align:center;
+				position:relative;
+			}
+			.right_text h2 {
+				margin-top:110px;
+				font-size:25px;
+			}
+			.right_text h2 span:last-child {
+				color:red;
+			}
+			.right_text p {
+				margin:0 auto;
+				padding:0px 50px;
+				width:300px;
+				color:#ccc;
+				line-height:35px;
+				text-align:left;
+			}
+			.right_text a {
+				display:inline-block;
+				height:28px;
+				width:98px;
+				margin-top:30px;
+				border:	1px solid red;
+				color:red;
+				text-decoration:none;
+				line-height:30px;
+			}
+			.right_text .pages_flag {
+				width:90px;
+				height:30px;
+				line-height:30px;
+				margin:20px auto;
+			}
+			.pages_flag span {
+				display:inline-block;
+				width:30px;
+				height:16px;
+				background:url(http://www.easyicon.net/api/resizeApi.php?id=1198167&size=16) no-repeat center;
+			}
+			.pages_flag span:first-child {
+				background:url(http://www.easyicon.net/api/resizeApi.php?id=1189320&size=16) no-repeat center;
+			}
+			.body_part6 .part6_triangle {
+				position:absolute;
+				top:235px;
+				left:-30px;
+				border-top:20px solid transparent;
+				border-bottom:20px solid transparent;
+				border-right:30px solid #fff;
+			}
+			/*
+				定义主体第七部分样式
+			*/
+			#mainbody .body_part7 {
+				height:500px;
+				position:relative;
+			}
+			.body_part7 .part7_left {
+				width:33%;
+				height:500px;
+				position:relative;
+				float:left;
+				text-align:center;
+				background:red;
+				color:#fff;
+			}
+			.part7_left .left_major_title {
+				margin:150px auto 10px;
+				font-size:25px;
+			}
+			.part7_left .left_minor_title {
+				margin:10px auto 20px;
+				font-size:25px;
+			}
+			.part7_left .left_line {
+				width:30px;
+				height:2px;
+				background:#fff;
+				margin:0 auto;
+			}
+			.part7_left a {
+				display:block;
+				margin:20px auto;
+				width:200px;
+				height:48px;
+				border:1px solid #fff;
+				text-decoration:none;
+				text-align:center;
+				line-height:50px;
+				font-size:25px;
+				color:#fff;
+			}
+			.part7_middle .mid_major_title {
+				margin:150px auto 10px;
+				font-size:25px;
+			}
+			.part7_middle .mid_minor_title {
+				margin:10px auto 20px;
+				font-size:25px;
+			}
+			.part7_middle .mid_line {
+				width:30px;
+				height:2px;
+				background:#aaa;
+				margin:0 auto;
+			}
+			.part7_middle a {
+				display:block;
+				margin:20px auto;
+				width:200px;
+				height:48px;
+				border:1px solid red;
+				text-decoration:none;
+				text-align:center;
+				line-height:50px;
+				font-size:25px;
+				color:red;
+			}
+			.body_part7 .part7_middle {
+				width:34%;
+				height:500px;
+				position:relative;
+				float:left;
+				text-align:center;
+				background:#fff;
+			}
+			.part7_triangle {
+				position:absolute;
+				top:235px;
+				border-top:20px solid transparent;
+				border-bottom:20px solid transparent;
+				border-left:30px solid #fff;
+			}
+			.body_part7 .part7_right {
+				width:33%;
+				height:500px;
+				position:relative;
+				float:left;
+				text-align:center;
+				background:url(http://pic.qiantucdn.com/58pic/21/71/49/78t58PICrJV_1024.jpg) no-repeat -320px;
+			}
+			/*
+				定义主体第八部分样式
+			*/
+			#mainbody .body_part8 {
+				position:relative;
+				height:600px;
+				padding:0 10%;
+			}
+			.body_part8 .invitation {
+				text-align:center;
+				position:relative;
+			}
+			.invitation h2 {
+				margin:100px auto 5px;
+				font-size:20px;
+			} 
+			.invitation .top_line {
+				width:30px;
+				height:2px;
+				margin:0 auto;
+				background:red;	
+			}
+			.invitation .invitation_p {
+				font-size:16px;
+				//line-height:20px;
+				margin:10px auto 3px;
+				color:#ccc;
+			}
+			.invitation p:last-child {
+				font-size:16px;
+				//line-height:20px;
+				margin-top:3px;
+				color:#ccc;
+			}
+			.body_part8 .requirement {
+				width:33%;
+				height:400px;
+				position:relative;
+				float:left;
+				//background:red;
+				margin-top:50px;
+			}
+			.requirement h3 {
+				width:260px;
+				margin:0 auto;
+			}
+			.requirement p {
+				margin:25px auto 0;
+				width:270px;
+				font-size:12px;
+				line-height:20px;
+			}
+			.requirement a {
+				display:block;
+				width:260px;
+				height:20px;
+				margin:5px auto 25px;
+				text-align:right;
+				text-decoration:none;
+				color:#ccc;
+				background:url(http://www.easyicon.net/api/resizeApi.php?id=1205406&size=16) no-repeat 210px 50%;
+			}
+			.body_part8 .enroll {
+				width:67%;
+				height:400px;
+				position:relative;
+				float:right;
+				margin-top:50px;
+			}
+			.enroll div {
+				display:inline-block;
+				width:300px;
+				height:50px;
+				background:#aaa;
+				margin-bottom:15px;
+				margin-right:15px;
+				float:left;
+				//text-align:left;
+				line-height:50px;
+				padding-left:15px;
+			}
+			.enroll div input {
+				background:#aaa;
+				border:none;
+				height:40px;
+				outline:none;
+			}
+			.enroll .dream {
+				width:630px;
+				height:125px;
+				
+			}
+			.enroll .dream textarea {
+				width:630px;
+				height:75px;
+				margin:0;
+				padding:0;
+				background:#aaa;
+				border:none;
+				outline:none;
+				resize:none;
+			}
+			.enroll .commit {
+				width:630px;
+				text-align:center;
+			}
+			.enroll .commit input {
+				font-size:20px;
+				font-weight:bold;
+			}
+			/*
+				定义主体第九部分样式
+			*/
+			#mainbody .body_part9 {
+				height:300px;
+				//position:relative;
+				background:#32363e;
+				text-align:center;
+				color:#fff;
+				padding-top:80px;
+			}
+			.body_part9 h2 {
+				margin:0 auto;
+				font-size:20px;
+			}
+			.body_part9 p {
+				margin-top:10px;
+				font-size:12px;
+			}
+			.body_part9 form div {
+				height:50px;
+				width:550px;
+				margin:30px auto;
+			}
+			.body_part9 form input {
+				height:50px;
+				border:none;
+				float:left;
+				outline:none;
+			}
+			.body_part9 form input:first-child {
+				width:450px;
+				padding:0;
+				color:#ccc;
+
+			}
+			.body_part9 form input:last-child {
+				width:100px;
+				padding:0;
+				background:#707278;
+				font-size:20px;
+				color:#fff;
+			}
+			.body_part9 .channel {
+				width:320px;
+				height:50px;
+				margin:40px auto 0; 
+			}
+			.body_part9 .channel a {
+				display:inline-block;
+				float:left;
+				width:80px;
+				height:50px;
+				margin:0;
+				padding:0;
+			}
+			.channel .QQ {
+				background:url(http://www.easyicon.net/api/resizeApi.php?id=1164771&size=48) no-repeat center;
+			}
+			.channel .sina {
+				background:url(http://www.easyicon.net/api/resizeApi.php?id=1164783&size=48) no-repeat center;
+			}
+			.channel .twitter {
+				background:url(http://www.easyicon.net/api/resizeApi.php?id=1202580&size=48) no-repeat center;
+			}
+			.channel .web {
+				background:url(http://www.easyicon.net/api/resizeApi.php?id=1121702&size=48) no-repeat center;
+			}
+			/*
+				定义尾部样式
+			*/
+			#footer {
+				height:100px;
+				position:relative;
+				background:#000;
+				color:#fff;
+			}
+			#footer .edit {
+				margin-left:10%;
+				font-size:12px;
+				height:100px;
+				line-height:100px;
+				margin:0 auto 0 10%;
+			}
+			#footer .totop {
+				position:absolute;
+				top:0;
+				right:3%;
+				font-size:12px;
+				line-height:100px;
+				margin:0;
+			}
+		
+
+			</style>
+	</head>
+	<body>
+		<div id="wraper">
+			<div id="header">
+				<div class="production_name">
+					<img src="http://www.easyicon.net/api/resizeApi.php?id=558952&size=64" alt="logo" title="新世界logo">
+					<h1>新世界</h1>
+				</div>
+				<div class="production_navi">
+					<ul>
+						<li><a href="#" target="_blank">首页</a></li>
+						<li><a href="#" target="_blank">最新活动</a></li>
+						<li><a href="#" target="_blank">项目介绍</a></li>
+						<li><a href="#" target="_blank">爱心社区</a></li>
+						<li><a href="#" target="_blank">关于我们</a></li>
+						<img src="http://www.easyicon.net/api/resizeApi.php?id=1187479&size=16">
+						<li><a href="#" target="_blank">登录</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="mainbody">
+				<div class="body_part1">
+					<div class="img_text">
+						<h2>Time of new life</h2>
+						<p>新时代，年轻的人们让我们一起</p>
+						<p>体验新生活，享受新生活</p>
+						<a href="#">开始体验</a>
+					</div>
+				</div>
+				<div class="body_part2">
+					<div class="feature box_1">
+						<img src="http://www.easyicon.net/api/resizeApi.php?id=1113541&size=48" alt="circle" title="circle">
+						<p>打造全新世界观，让你更</p>
+						<p>爱你的生活</p>
+					</div>
+					<div class=" splitter boxline_12"></div>
+					<div class="feature box_2">
+						<img src="http://www.easyicon.net/api/resizeApi.php?id=12543&size=48" alt="flag" title="flag">
+						<p>丰富多彩的公益活动，发</p>
+						<p>挥新世界的主人公意识</p>
+					</div>
+					<div class=" splitter boxline_23"></div>
+					<div class="feature box_3">
+						<img src="http://www.easyicon.net/api/resizeApi.php?id=1180336&size=48" alt="flower" title="flower">
+						<p>时尚的新理念，超前体验</p>
+						<p>未知的生活</p>
+					</div>
+					<div class="splitter boxline_34"></div>
+					<div class="feature box_4">
+						<img src="http://www.easyicon.net/api/resizeApi.php?id=1160217&size=48" alt="square" title="square">
+						<p>完善的培养机制，培养你</p>
+						<p>全新的世界观</p>
+					</div>
+				</div>
+				<div class="body_part3">
+					<img src="http://www.easyicon.net/api/resizeApi.php?id=558952&size=128" alt="biglogo" title="biglogo">
+					<p>关于新世界，你不知道的还有什么？</p>
+				</div>
+				<div class="body_part4">
+					<p>查找新世界城市活动信息</p>
+					<p class="short_line"></p>
+					<p class="search_note">每个城市有不同的活动信息，请自主查询您所需要了解的城市</p>
+					<form class="clearbox">
+						<div class="state_box">
+							<span>中国</span>
+							<select>
+								<option value="China">中国</option>
+								<option value="England">英国</option>
+								<option value="France">法国</option>
+								<option value="Germany">德国</option>
+							</select>
+						</div>
+						<div class="province_box">
+							<span>省份</span>
+							<select>
+								<option value="beijing">北京市</option>
+								<option value="tianjin">天津市</option>
+								<option value="hebei">河北省</option>
+								<option value="shanxi">陕西省</option>
+								<option value="neimenggu">内蒙古自治区</option>
+								<option value="liaoning">辽宁省</option>
+							</select>
+						</div>
+						<div class="city_box">
+							<span>城市</span>
+							<select class="selection select_city">
+								<option>海淀</option>
+								<option>朝阳</option>
+								<option>丰台</option>
+							</select>
+						</div>
+						<div class="submit_box">
+							<a href="#"><span>搜索</span></a>
+						</div>
+					</form>
+
+				</div>
+				<div class="body_part5">
+					<div class="part5_wrapper">
+						<div class="active beijing">
+							<img src="http://pic.qiantucdn.com/58pic/19/56/55/56ebc9a0e5c8e_1024.jpg" alt="" title="" />
+							<h4>北京活动</h4>
+							<p>新社区大联盟</p>
+						</div>
+						<div class="active shanghai">
+							<h4>上<span>海</span><span>活</span><span>动</span></h4>
+							<p>夜上海新景观探索</p>
+							<img src="http://pic.qiantucdn.com/58pic/12/42/16/87K58PICYTP.jpg" alt="" title="" />
+						</div>
+						<div class="active shenzhen">
+							<img src="http://pic.qiantucdn.com/58pic/22/74/27/46458PICYje_1024.jpg" alt="" title="" />
+							<h4>深圳活动</h4>
+							<p>全新海岸线观点站</p>
+						</div>
+						<div class="active hongkong">
+							<img src="http://pic.qiantucdn.com/58pic/11/32/02/47f58PICiXG.jpg" alt="" title="" />
+							<h4>香港活动</h4>
+							<p>奢侈消费大派送</p>
+						</div>
+					</div>
+				</div>
+				<div class="body_part6">
+					<div class="left_img">
+						<p class="new_world">新世界</p>
+						<p class="new_time">TIME</p>
+						<p class="new_beijing">@新世界 - 北京</p>
+						<p class="new_date">2016.04.01</p>
+					</div>
+					<div class="right_text">
+						<h2><span>新世界/</span><span>01</span></h2>
+						<p>新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界</p>
+						<a href="#">更多详情</a>
+						<div class="pages_flag">
+							<span></span><span></span><span></span>
+						</div>
+						<div class="part6_triangle">
+						</div>
+					</div>
+				</div>
+				<div class="body_part7">
+					<div class="part7_left">
+						<p class="left_major_title">新时代</p>
+						<p class="left_minor_title">关于爱生活的我们</p>
+						<p class="left_line"></p>
+						<a href="#">查看更多</a>
+					</div>
+					<div class="part7_middle">
+						<p class="mid_major_title">新时代</p>
+						<p class="mid_minor_title">关于爱生活的我们</p>
+						<p class="mid_line"></p>
+						<a href="#">查看更多</a>
+					</div>
+					<div class="part7_right">
+						<div class="part7_triangle">
+						</div>
+					</div>
+				</div>
+				<div class="body_part8">
+					<div class="invitation">
+						<h2>成为我们的志愿者</h2>
+						<p class="top_line"></p>
+						<p class="invitation_p">新世界的大家庭需要每一个爱生活的人的加入，如果你够年轻，有梦想，有激情</p>
+						<p>那就不要犹豫，快来加入我们，成为改变所有人生活的人</p>
+					</div>
+					<div class="requirement">
+						<h3>新世界志愿者协议</h3>
+						<p>加入新世界志愿者的成员必须遵守中华人民共和国的相关法律法规，并且本着平等资源的原则……</p>
+						<a href="#">more</a>
+						<h3>新世界志愿者权利</h3>
+						<p>新世界志愿者享受新世界内部所有资源共享的权利，并且享受所在四新世界活动的优先参与资格</p>
+						<a href="#">more</a>
+						<h3>更多条款</h3>
+						<a href="#">more</a>
+					</div>
+					
+						<form class="enroll">
+							<div class="name">姓名:<input type="text" name="name"></div>
+							<div class="age">年龄:<input type="text" name="age"></div>
+							<div class="phone">联系方式:<input type="text" name="phone"></div>
+							<div class="address">联系地址:<input type="text" name="address"></div>
+							<div class="dream">请简单描述您梦想的生活:<textarea></textarea></div>
+							<div class="commit"><input type="submit" value="提交申请"></div>
+						</form>
+					
+				</div>
+				<div class="body_part9">
+					<h2>联系我们</h2>
+					<p>为了更好的获取我们最新的产品资讯，您可以留下您的电子邮箱快速订阅我们的产品资讯</p>
+					<p>也可以通过以下任意方式关注我们的动态</p>
+
+					<form>
+						<div>
+							<input type="text" name="mail" value="someone@email.com" />
+							<input type="submit" value="提交" />
+						</div>
+					</form>
+					<div class="channel">
+						<a href="#" class="QQ"></a>
+						<a href="#" class="sina"></a>
+						<a href="#" class="twitter"></a>
+						<a href="#" class="web"></a>
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				<p class="edit">@2016新世界</p>
+				<p class="totop">Back to top</p>
+
+			</div>
+			
+		</div>
+	</body>
+</html>
+
