@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text-html" charset="utf-8">
+		<title>flexbox布局练习--task9</title>
+		<style type="text/css">
+			body {
+				margin:0;
+				padding:0;
+			}
+			@media (min-width:640px) {
+				.flex-container {
+					display:flex;
+					height:300px;
+					justify-content:space-between;
+					align-items:center;
+				}
+				
+				.flex-item1,
+				.flex-item2,
+				.flex-item3,
+				.flex-item4 {
+					width:150px;
+					box-sizing:border-box;
+					border:1px solid red;
+				}
+				
+				.flex-item1 {
+					height:120px;
+					margin-left:20px;
+				}
+				.flex-item2 {
+					height:100px;
+				}
+				.flex-item3 {
+					height:40px;
+				}
+				.flex-item4 {
+					height:200px;
+					border:1px solid blue;
+					margin-right:20px;
+				}	
+			}
+			@media (max-width:640px) {
+			.flex-container {
+				display:flex;
+				justify-content:space-between;
+				align-items:start;
+				flex-wrap:wrap;
+			}
+			.flex-item1,
+			.flex-item2,
+			.flex-item3,
+			.flex-item4 {
+				width:150px;
+				flex-shrink;
+				box-sizing:border-box;
+				border:1px solid red;
+				margin:20px 20px auto 20px;
+			}
+			.flex-item4 {
+				height:200px;
+				border:1px solid blue;
+				margin-left:20px;
+				order:1;
+			}
+			.flex-item3 {
+				height:40px;
+				margin-left:20px;
+				order:4;
+			}
+			.flex-item2 {
+				height:100px;
+				margin-right:20px;
+				order:3;
+			}
+			.flex-item1 {
+				height:120px;
+				order:2;
+			}
+			}
+			
+		
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="flex-container">
+			<div class="flex-item1"></div>
+			<div class="flex-item2"></div>
+			<div class="flex-item3"></div>
+			<div class="flex-item4"></div>
+		</div>
+	</body>
+</html>
+
